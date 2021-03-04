@@ -2,7 +2,7 @@
 
 ## Repo architecture
 ```
-├── open.rc                       // not included here, this file contain your env variable to acces FE ([cf Online Doc](https://docs.prod-cloud-ocb.orange-business.com/devg/sdk/en-us_topic_0070637155.html))
+├── open.rc                       // not included here, this file contains your env variables to acces Flexible Engine Cloud ([cf Online Doc](https://docs.prod-cloud-ocb.orange-business.com/devg/sdk/en-us_topic_0070637155.html))
 ├── kubernetes-manifests
 │   ├── etherpad-deployment.yaml
 │   ├── etherpad-secret.yaml
