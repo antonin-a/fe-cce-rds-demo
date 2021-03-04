@@ -1,0 +1,73 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: etherpaddemo
+  namespace: default
+  labels:
+    appgroup: ''
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+    description: ''
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: etherpaddemo
+  template:
+    metadata:
+      labels:
+        app: etherpaddemo
+      annotations:
+        kubernetes.io/change-cause: 'first release'
+        metrics.alpha.kubernetes.io/custom-endpoints: '[{"api":"","path":"","port":"","names":""}]'
+    spec:
+      containers:
+        - name: etherpaddemo
+          image: 'etherpad/etherpad:latest'
+          env:
+            - name: DB_TYPE
+              value: postgres
+            - name: DB_HOST
+              value: 10.0.3.23
+            - name: DB_PORT
+              value: '5432'
+            - name: DB_NAME
+              value: etherpad
+            - name: DB_USER
+              value: root
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: aan-etherpaddemo-secret
+                  key: DB_PASS
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: aan-etherpaddemo-secret
+                  key: ADMIN_PASSWORD
+          resources: {}
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: default-secret
+      affinity: {}
+      schedulerName: default-scheduler
+      tolerations:
+        - key: node.kubernetes.io/not-ready
+          operator: Exists
+          effect: NoExecute
+          tolerationSeconds: 300
+        - key: node.kubernetes.io/unreachable
+          operator: Exists
+          effect: NoExecute
+          tolerationSeconds: 300
+      dnsConfig:
+        options:
+          - name: timeout
+            value: ''
+          - name: ndots
+            value: '5'
+          - name: single-request-reopen
