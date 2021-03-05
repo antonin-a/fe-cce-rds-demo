@@ -75,7 +75,7 @@ Will be used to deploy a basic application, here it is an [Etherpad](https://git
 - Create a variables.auto.tfvars file and set values for the following variables:
   
  Name | Description | Type
------------- | -------------
+------------ | ------------- |-------------
 rds_password | password that will be used for the RDS DB | string
 cce_sg_id | cce security group password | string
 bastion_sg_id | astion security group password id | string
