@@ -90,8 +90,9 @@ kubectl apply -f etherpad-secret.yaml
 ``` 
 kubectl apply -f etherpad-deployment.yaml
 ```
-Check that pod is up and runing 
-```kubectl get pod
+Check that pod is up and running 
+```
+kubectl get pod
 ```
 #### Create the service 
 ```
