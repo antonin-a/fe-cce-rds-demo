@@ -71,7 +71,18 @@ Will be used to deploy a basic application, here it is an [Etherpad](https://git
 ```
 
 ## Step by step
-Create your open.rc file and source it (https://docs.prod-cloud-ocb.orange-business.com/devg/sdk/en-us_topic_0070637155.html)
+- Create your open.rc file and source it (https://docs.prod-cloud-ocb.orange-business.com/devg/sdk/en-us_topic_0070637155.html)
+- Create a variables.auto.tfvars file and set values for the following variables:
+  
+ Name | Description | Type
+------------ | -------------
+rds_password | password that will be used for the RDS DB | string
+cce_sg_id | cce security group password | string
+bastion_sg_id | astion security group password id | string
+network_id | network id where rds will be created | string  
+vpc_id | vpc id where RDS will be created | string 
+
+
 ### Terraform deployment
 Move to terraform-plan directory, then
 ```
