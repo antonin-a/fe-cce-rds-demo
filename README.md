@@ -1,4 +1,4 @@
-# Flexible Engine - Relational Database Service (RDS) demo using Terraform and Kubernetes
+# Flexible Engine - Relational Database Service (RDS) demo using Terraform and CCE (Kubernetes aaS)
 
 ## Repo architecture
 ```
