@@ -71,6 +71,7 @@ Will be used to deploy a basic application, here it is an [Etherpad](https://git
 ```
 
 ## Step by step
+- As a prerequisite, you should have an existing VPC and CCE cluster
 - Create your open.rc file and source it (https://docs.prod-cloud-ocb.orange-business.com/devg/sdk/en-us_topic_0070637155.html)
 - Create a variables.auto.tfvars file and set values for the following variables:
   
